@@ -58,6 +58,7 @@ def addUser(server_id, twitch_name, discord_name):
     wks = sh.worksheet_by_title("Sheet1")
     all_values = wks.get_all_values()
     for idx, row in enumerate(all_values):
+        print(row[0], twitch_name, type(row[0]), type(twitch_name))
         if row[0] == twitch_name:
             print('User exists, updating user')
             wks.update_value('B'+str(idx+1), discord_name)
