@@ -62,7 +62,7 @@ def addUser(server_id, twitch_name, discord_name):
             print('User exists, updating user')
             wks.update_value('B'+str(idx+1), discord_name)
             return True
-        elif row[0] != '':
+        elif row[0] == '':
             print(f'Adding user {twitch_name}, {discord_name}')
             wks.insert_rows(row=idx+2, values=[twitch_name, discord_name])
             return True
