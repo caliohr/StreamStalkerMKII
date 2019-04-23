@@ -96,7 +96,9 @@ async def on_member_update(before, after):
     
     users = main.usersRead(users_filename)
     channel = main.channelsRead(channels_filename)
-
+    if channel == '':
+        channel = 'general'
+     
     if str(before.name) == 'StreamStalker':
         pass
 
@@ -200,6 +202,8 @@ async def on_message(message):
     
     users = main.usersRead(users_filename)
     channel = main.channelsRead(channels_filename)
+    if channel == '':
+        channel = 'general'
 
     if message.author == bot.user:
         return
