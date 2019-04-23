@@ -66,6 +66,8 @@ def addUser(server_id, twitch_name, discord_name):
             print(f'Adding user {twitch_name}, {discord_name}')
             wks.insert_rows(row=idx+2, values=[twitch_name, discord_name])
             return True
+        else:
+            print('Error')
 
 def removeUser(server_id, twitch_name, discord_name):
     sh = gc.open(server_id)
