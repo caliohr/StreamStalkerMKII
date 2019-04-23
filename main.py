@@ -57,6 +57,7 @@ def addUser(server_id, twitch_name, discord_name):
     sh = gc.open(server_id)
     wks = sh.worksheet_by_title("Sheet1")
     all_values = wks.get_all_values()
+    print(all_values[0])
     for idx, row in enumerate(all_values):
         print(row[0], twitch_name, type(row[0]), type(twitch_name))
         if row[0] == twitch_name:
@@ -65,7 +66,7 @@ def addUser(server_id, twitch_name, discord_name):
             return True
         elif row[0] == '':
             print(f'Adding user {twitch_name}, {discord_name}')
-            wks.insert_rows(row=idx+2, values=[twitch_name, discord_name])
+            wks.insert_rows(row=idx+1, values=[twitch_name, discord_name])
             return True
         else:
             print('Error', row[0])
